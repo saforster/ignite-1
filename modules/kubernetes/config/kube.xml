@@ -118,4 +118,14 @@
             </list>
         </property>
     </bean>
+
+    <!-- Template for all example cache configurations. -->
+    <bean id="cache-template" abstract="true" class="org.apache.ignite.configuration.CacheConfiguration">
+        <!-- Set synchronous rebalancing (default is asynchronous). -->
+        <property name="rebalanceMode" value="SYNC"/>
+
+        <!-- Set to FULL_SYNC for examples, default is PRIMARY_SYNC. -->
+        <property name="writeSynchronizationMode" value="FULL_SYNC"/>
+    </bean>
+
 </beans>
