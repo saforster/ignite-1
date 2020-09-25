@@ -46,7 +46,7 @@
                     <property name="name" value="partitioned"/>
                     <property name="cacheMode" value="PARTITIONED"/>
                     <property name="atomicityMode" value="ATOMIC"/>
-                    <property name="backups" value="1"/>
+                    <property name="backups" value="4"/>
 
                     <property name="indexedTypes">
                         <list>
