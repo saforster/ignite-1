@@ -41,17 +41,30 @@
             </bean>
         </property>
     </bean>
+    <bean class="org.apache.ignite.configuration.IgniteConfiguration">
+        <property name="cacheConfiguration">
+            <list>
+                <bean abstract="true" class="org.apache.ignite.configuration.CacheConfiguration" id="cache-template-bean">
+                    <!-- when you create a template via XML configuration, you must add an asterisk to the name of the template -->
+                    <property name="name" value="myCacheTemplate*"/>
+                    <property name="cacheMode" value="PARTITIONED"/>
+                    <property name="backups" value="2"/>
+                    <!-- Other cache parameters -->
+                </bean>
+            </list>
+        </property>
+    </bean>
+    <bean class="org.apache.ignite.configuration.IgniteConfiguration">
+        <property name="cacheConfiguration">
+            <list>
+                <bean abstract="true" class="org.apache.ignite.configuration.CacheConfiguration" id="cache-template-bean">
+                    <!-- when you create a template via XML configuration, you must add an asterisk to the name of the template -->
+                    <property name="name" value="myReplicatedCacheTemplate*"/>
+                    <property name="cacheMode" value="REPLICATED"/>
+                    <property name="backups" value="2"/>
+                    <!-- Other cache parameters -->
+                </bean>
+            </list>
+        </property>
+    </bean>
 </beans>
-<property name="cacheConfiguration"> 
-   <list> 
-       <bean id="cache-template-bean" abstract="true" class="org.apache.ignite.configuration.CacheConfiguration"> 
-         <!-- when you create a template via XML configuration, 
-         you must add an asterisk to the name of the template -->
-          <property name="name" value="myReplicatedCacheTemplate*"/> 
-          <property name="cacheMode" value="REPLICATED" /> 
-          <property name="backups" value="2" /> 
-          <!-- Other cache configurations -->
-          ...
-       </bean> 
-   </list> 
-</property>
