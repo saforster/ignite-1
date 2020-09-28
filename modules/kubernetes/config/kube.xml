@@ -102,6 +102,13 @@
                     <property name="atomicityMode" value="TRANSACTIONAL"/>
                 </bean>
 
+                <!-- Replicated cache example configuration 3 x backup. -->
+                <bean parent="cache-template">
+                    <property name="name" value="replicated_3x"/>
+                    <property name="cacheMode" value="REPLICATED"/>
+                    <property name="backups" value="3"/>
+                </bean>
+
                 <!-- Local cache example configuration (Atomic mode). -->
                 <bean parent="cache-template">
                     <property name="name" value="local"/>
