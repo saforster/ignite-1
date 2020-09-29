@@ -28,7 +28,7 @@
 
     <bean class="org.apache.ignite.configuration.IgniteConfiguration">
 
-        <property name="consistentId" value="#{ systemEnvironment['HOSTNAME'] }" />
+        <property name="consistentId" value="#{ systemEnvironment['IGNITE_SERVICE_HOST'] }" />
 
         <!-- Explicitly configure TCP discovery SPI to provide list of initial nodes. -->
         <property name="discoverySpi">
