@@ -28,6 +28,8 @@
 
     <bean class="org.apache.ignite.configuration.IgniteConfiguration">
 
+        <property name="failureDetectionTimeout" value="#{ systemEnvironment['IGNITE_FAILURE_DETECTION_TIMEOUT']?: 1 * 60 * 1000 }" />
+
         <!-- Explicitly configure TCP discovery SPI to provide list of initial nodes. -->
         <property name="discoverySpi">
             <bean class="org.apache.ignite.spi.discovery.tcp.TcpDiscoverySpi">
