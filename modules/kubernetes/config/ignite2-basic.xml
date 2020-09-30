@@ -40,7 +40,7 @@
                     <bean class="org.apache.ignite.spi.discovery.tcp.ipfinder.kubernetes.TcpDiscoveryKubernetesIpFinder">
                         <!-- Assumed that you have RBAC configured and `ignite` namespace created for it. -->
                         <property name="namespace" value="ignite2"/>
-                        <property name="serviceName" value="ignite2-service"/>
+                        <property name="serviceName" value="ignite-k8sipfinder-service"/>
                     </bean>
                 </property>
             </bean>
