@@ -28,6 +28,8 @@
 
     <bean class="org.apache.ignite.configuration.IgniteConfiguration">
 
+        <property name="failureDetectionTimeout" value="#{ systemEnvironment['IGNITE_FAILURE_DETECTION_TIMEOUT']?: 1 * 60 * 1000 }" />
+
         <!-- Explicitly configure TCP discovery SPI to provide list of initial nodes. -->
         <property name="discoverySpi">
             <bean class="org.apache.ignite.spi.discovery.tcp.TcpDiscoverySpi">
@@ -35,6 +37,7 @@
                     <!--
                         Enables Kubernetes IP finder with default settings.
                     -->
+                    
                     <bean class="org.apache.ignite.spi.discovery.tcp.ipfinder.kubernetes.TcpDiscoveryKubernetesIpFinder">
                         <!-- Assumed that you have RBAC configured and `ignite` namespace created for it. -->
                         <property name="namespace" value="ignite2"/>
